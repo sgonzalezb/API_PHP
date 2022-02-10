@@ -17,7 +17,7 @@
         @csrf
         
         <label>
-            Nombre:
+            {{__("name")}}
             <br>
             <input value="{{old("name")}}" type="text" name="name">
         </label>
@@ -30,7 +30,7 @@
 
         <br>
         <label>
-            Descripción:
+            {{__("description")}}
             <br>
             <input value="{{old("description")}}" type="text" name="description">
         </label>
