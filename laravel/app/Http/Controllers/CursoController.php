@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class CursoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     public function index()
     {
         //GET ALL

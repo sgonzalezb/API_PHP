@@ -44,7 +44,7 @@ Route::view("/", "home")->name("home"); // Para peticiones crud (sin vistas) lla
 
 /******* Route Resources *******/
 //Es necesario seguir la convención de Laravel!!!!!!!
-Route::resource("cursos", CursoController::class)->middleware("auth");
+Route::resource("cursos", CursoController::class);
 Auth::routes();
 
 // Route::group(["middleware" => "auth"], function () {
