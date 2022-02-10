@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use Illuminate\Support\Facades\Auth;
 use League\CommonMark\Parser\CursorState;
 
 /*
@@ -43,10 +44,18 @@ Route::view("/", "home")->name("home"); // Para peticiones crud (sin vistas) lla
 
 /******* Route Resources *******/
 //Es necesario seguir la convención de Laravel!!!!!!!
-Route::resource("cursos", CursoController::class);
+Route::resource("cursos", CursoController::class)->middleware("auth");
+Auth::routes();
 
+// Route::group(["middleware" => "auth"], function () {
 
-
+//     //    LISTA DE RUTAS QUE NECESITAN LOGIN
+//     Route::get("/cursos/create", [CursoController::class, "create"])->name("cursos.create");
+//     Route::post("/cursos/create", [CursoController::class, "store"])->name("cursos.store");
+//     Route::get("/cursos/{curso}/edit", [CursoController::class, "edit"])->name("cursos.edit");
+//     Route::put("/cursos/{curso}/edit", [CursoController::class, "update"])->name("cursos.update");
+//     Route::delete("/cursos/{curso}", [CursoController::class, "destroy"])->name("cursos.destroy");
+// });
 
 
 // Route::view("/portfolio", "portfolio", compact('portfolio'))->name("portfolio");

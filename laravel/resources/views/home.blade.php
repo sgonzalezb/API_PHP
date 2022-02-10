@@ -1,4 +1,4 @@
-@extends("layout")
+@extends("layouts.app")
 
 <!-- Se pueden pasar los yield de dos formas  -->
 <!-- Directamente en la función section -->
