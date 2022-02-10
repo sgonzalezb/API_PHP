@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCurso;
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CursoController extends Controller
 {
@@ -32,11 +33,24 @@ class CursoController extends Controller
 
         //Primeramente se realiza la validación que tenemos en StoreCurso (FormRequest);
 
+
+        // SGBD
         $curso = new Curso();
 
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->save();
+
+
+        // QUERYBUILDER
+        // $data = [
+        //     "name" => $request->name,
+        //     "description" => $request->description
+        // ];
+        // DB::table('curso')->insert($data);
+
+        // Eloquent
+        // Curso::create($request->all());
 
         return redirect()->route("cursos.show", $curso->id);
     }
