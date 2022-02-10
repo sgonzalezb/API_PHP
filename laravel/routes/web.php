@@ -17,26 +17,33 @@ use League\CommonMark\Parser\CursorState;
 */
 
 
-//Home
+// //Home
 Route::view("/", "home")->name("home"); // Para peticiones crud (sin vistas) llamando al controllador
 
-//Get All
-Route::get("/curso", [CursoController::class, "index"])->name("cursos.index");
 
-// Create
-Route::get("/curso/create", [CursoController::class, "create"])->name("cursos.create");
-Route::post("/curso/create", [CursoController::class, "store"])->name("cursos.store");
+/******* Rutas Iniciales *******/
+// //Get All
+// Route::get("/cursos", [CursoController::class, "index"])->name("cursos.index");
 
-//Get One
-Route::get("/curso/{curso}", [CursoController::class, "show"])->name("cursos.show");
+// // Create
+// Route::get("/cursos/create", [CursoController::class, "create"])->name("cursos.create");
+// Route::post("/cursos/create", [CursoController::class, "store"])->name("cursos.store");
 
-//Update
-Route::get("/curso/{curso}/edit", [CursoController::class, "edit"])->name("cursos.edit");
-Route::put("/curso/{curso}/edit", [CursoController::class, "update"])->name("cursos.update");
+// //Get One
+// Route::get("/cursos/{curso}", [CursoController::class, "show"])->name("cursos.show");
 
-//Delete
-Route::delete("/curso/{curso}", [CursoController::class, "destroy"])->name("cursos.destroy");
+// //Update
+// Route::get("/cursos/{curso}/edit", [CursoController::class, "edit"])->name("cursos.edit");
+// Route::put("/cursos/{curso}/edit", [CursoController::class, "update"])->name("cursos.update");
 
+// //Delete
+// Route::delete("/cursos/{curso}", [CursoController::class, "destroy"])->name("cursos.destroy");
+
+
+
+/******* Route Resources *******/
+//Es necesario seguir la convención de Laravel!!!!!!!
+Route::resource("cursos", CursoController::class);
 
 
 
