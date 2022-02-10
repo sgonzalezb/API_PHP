@@ -5,6 +5,13 @@
 @section("content")
     <h1>Create curso</h1>
 
+
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+
     <form method="POST" action="{{route("cursos.store")}}">
 
         @csrf
